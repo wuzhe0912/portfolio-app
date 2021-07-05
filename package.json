@@ -1,0 +1,15 @@
+{
+  "name": "portfolio-app",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/wuzhe0912/portfolio-app.git",
+  "author": "Pitt Wu <kgb00128@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "build": "webpack"
+  },
+  "devDependencies": {
+    "webpack": "^5.42.0",
+    "webpack-cli": "^4.7.2"
+  }
+}
