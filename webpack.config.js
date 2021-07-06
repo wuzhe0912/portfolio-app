@@ -13,7 +13,8 @@ module.exports = {
         test: /\.css$/,
         use: [
           'style-loader',
-          'css-loader'
+          'css-loader',
+          'postcss-loader'
         ],
         // 排除 node_modules 內的 css 無需編譯
         exclude: /node_modules/,
