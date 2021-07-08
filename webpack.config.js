@@ -1,3 +1,5 @@
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+
 module.exports = {
   mode: "development",
   entry: './src/index.js',
@@ -19,7 +21,23 @@ module.exports = {
         // 排除 node_modules 內的 css 無需編譯
         exclude: /node_modules/,
         include: /src/
+      },
+      {
+        test: /\.(png|jpg|gif|svg)$/,
+        use: {
+          loader: 'url-loader',
+          options: {
+            // 決定多少大小的圖片，改成 base64
+            limit: 100
+          }
+        },
+        exclude: /node_modules/,
       }
     ]
-  }
+  },
+  plugins: [
+    new HtmlWebpackPlugin({
+      template: 'index.html'
+    })
+  ]
 }
