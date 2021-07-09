@@ -9,12 +9,20 @@
     "build": "webpack",
     "dev": "webpack serve"
   },
+  "dependencies": {
+    "axios": "^0.21.1"
+  },
   "devDependencies": {
+    "@babel/core": "^7.14.6",
+    "@babel/preset-env": "^7.14.7",
     "autoprefixer": "^10.2.6",
+    "babel-loader": "^8.2.2",
     "css-loader": "^5.2.6",
     "file-loader": "^6.2.0",
     "html-webpack-plugin": "^5.3.2",
+    "node-sass": "^6.0.1",
     "postcss-loader": "^6.1.1",
+    "sass-loader": "^12.1.0",
     "style-loader": "^3.0.0",
     "url-loader": "^4.1.1",
     "webpack": "^5.42.0",
@@ -29,8 +37,5 @@
   "browserslist": [
     "> 1%",
     "last 4 versions"
-  ],
-  "dependencies": {
-    "axios": "^0.21.1"
-  }
+  ]
 }

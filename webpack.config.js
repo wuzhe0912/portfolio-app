@@ -31,6 +31,22 @@ module.exports = {
           }
         },
         exclude: /node_modules/,
+      },
+      {
+        test: /\.js$/,
+        loader: 'babel-loader',
+        exclude: /node_modules/,
+        include: /src/
+      },
+      {
+        test: /\.(scss|sass)$/,
+        use: [
+          'style-loader',
+          'css-loader',
+          'sass-loader'
+        ],
+        exclude: /node_modules/,
+        include: /src/
       }
     ]
   },
