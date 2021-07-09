@@ -4,10 +4,9 @@ module.exports = {
   mode: "development",
   entry: './src/index.js',
   output: {
-    // 打包後的檔案名稱
-    filename: 'bundle.js',
-    // 指定打包後輸出的位置
-    path: __dirname + '/dist'
+    filename: 'bundle.js',     // 打包後的檔案名稱
+    path: __dirname + '/dist', // 指定打包後輸出的位置
+    publicPath: ''
   },
   module: {
     rules: [
@@ -39,5 +38,12 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: 'index.html'
     })
-  ]
+  ],
+  devServer: {
+    contentBase: __dirname + '/dist', // server root folder
+    host: 'localhost',
+    port: 8081,
+    hot: true, // hot reload
+    open: true // default open browser
+  }
 }

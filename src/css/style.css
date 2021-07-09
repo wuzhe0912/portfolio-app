@@ -1,4 +1,5 @@
 .app {
-  color: aqua;
-  transform: rotate(45deg);
+  display: flex;
+  color: red;
+  font-size: 30px;
 }
