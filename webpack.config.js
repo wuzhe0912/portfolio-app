@@ -43,7 +43,14 @@ module.exports = {
     contentBase: __dirname + '/dist', // server root folder
     host: 'localhost',
     port: 8081,
-    hot: true, // hot reload
-    open: true // default open browser
+    hot: true,  // hot reload
+    open: true, // default open browser
+    proxy: {
+      "/api": {
+        // target: "http://lemall.futurefe.com", // 已廢棄 api
+        target: "",
+        changeOrigin: true
+      }
+    }
   }
 }

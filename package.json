@@ -29,5 +29,8 @@
   "browserslist": [
     "> 1%",
     "last 4 versions"
-  ]
+  ],
+  "dependencies": {
+    "axios": "^0.21.1"
+  }
 }
