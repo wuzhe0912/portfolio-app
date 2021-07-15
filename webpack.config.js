@@ -1,29 +1,26 @@
+const path = require('path');
+console.log(process.env.NODE_ENV);
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 module.exports = {
-  mode: "development",
-  entry: './src/index.js',
+  context: path.resolve(__dirname, './src'),
+  entry: './index.js',
   output: {
-    filename: 'bundle.js',     // 打包後的檔案名稱
-    path: __dirname + '/dist', // 指定打包後輸出的位置
-    publicPath: ''
+    path: path.resolve(__dirname, './dist'),  // 指定打包後輸出的位置
+    filename: 'bundle.js',                    // 打包後的檔案名稱
   },
   module: {
     rules: [
       {
         test: /\.css$/,
-        use: [
-          'style-loader',
-          'css-loader',
-          'postcss-loader'
-        ],
+        use: ['style-loader', 'css-loader', 'postcss-loader'],
         // 排除 node_modules 內的 css 無需編譯
         exclude: /node_modules/,
         include: /src/
       },
       {
-        test: /\.(png|jpg|gif|svg)$/,
+        test: /\.(png|jpg|jpeg|gif|svg)$/,
         use: {
           loader: 'url-loader',
           options: {
@@ -41,27 +38,37 @@ module.exports = {
       },
       {
         test: /\.(scss|sass)$/,
-        use: [
-          'style-loader',
-          'css-loader',
-          'sass-loader'
-        ],
+        use: ['style-loader', 'css-loader', 'sass-loader'],
         exclude: /node_modules/,
         include: /src/
-      }
+      },
+      {
+        test: /\.pug$/,
+        use: ['html-loader', 'pug-html-loader']
+      },
     ]
   },
   plugins: [
     new CleanWebpackPlugin(),
     new HtmlWebpackPlugin({
-      template: 'index.html'
+      title: '',
+      filename: 'index.html',
+      template: 'views/index.pug',
+      chunks: ['index'],
+      minify: {
+        // 醜化 + 最小化
+        sortAttributes: true,
+        collapseWhitespace: true, // 摺疊空白字元
+        collapseBooleanAttributes: true, // 摺疊布林值
+        removeComments: true, // 移除註釋
+        removeAttributeQuotes: true // 移除屬性的引號
+      }
     })
   ],
   devServer: {
     contentBase: __dirname + '/dist', // server root folder
     host: 'localhost',
     port: 8081,
-    hot: true,  // hot reload
     open: true, // default open browser
     proxy: {
       "/api": {
@@ -69,6 +76,9 @@ module.exports = {
         target: "",
         changeOrigin: true
       }
+    },
+    watchOptions: {
+      poll: true,
     }
   }
 }
