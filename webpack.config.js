@@ -5,10 +5,13 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 module.exports = {
   context: path.resolve(__dirname, './src'),
-  entry: './index.js',
+  entry: {
+    index: './index.js',
+    about: './about.js',
+  },
   output: {
     path: path.resolve(__dirname, './dist'),  // 指定打包後輸出的位置
-    filename: 'bundle.js',                    // 打包後的檔案名稱
+    filename: '[name].js',                    // 打包後的檔案名稱
   },
   module: {
     rules: [
