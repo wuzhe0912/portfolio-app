@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "check:style": "stylelint **/*.css"
   },
   "dependencies": {
     "next": "12.0.1",
@@ -15,6 +16,9 @@
   },
   "devDependencies": {
     "eslint": "7",
-    "eslint-config-next": "12.0.1"
+    "eslint-config-next": "12.0.1",
+    "stylelint": "^14.0.1",
+    "stylelint-config-standard": "^23.0.0",
+    "stylelint-order": "^5.0.0"
   }
 }

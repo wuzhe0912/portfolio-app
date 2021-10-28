@@ -15,5 +15,9 @@
   },
   "emmet.includeLanguages": {
     "javascript": "javascriptreact"
+  },
+  // Stylelint
+  "editor.codeActionsOnSave": {
+    "source.fixAll.stylelint": true
   }
 }
