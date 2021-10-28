@@ -1,6 +1,7 @@
 import Head from "next/head";
+import Home from "@/components/Home";
 
-export default function Home() {
+export default function Entry() {
   return (
     <div className="wrapper">
       <Head>
@@ -8,8 +9,7 @@ export default function Home() {
         <meta name="description" content="Pitt Wu's Portfolio App" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-
-      <section className="home">123</section>
+      <Home />
     </div>
   );
 }
